@@ -1,0 +1,130 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Certificate Generator</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background: #f3f4f6;
+      margin: 0;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .certificate-container {
+      position: relative;
+      width: 900px;
+      height: 600px;
+      margin: 20px auto;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      border: 8px solid #34495e;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      padding: 30px;
+      color: #2c3e50;
+    }
+
+    .header {
+      font-size: 2.5rem;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .subheader {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+    }
+
+    .recipient {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #2c3e50;
+      margin-bottom: 20px;
+    }
+
+    .content {
+      font-size: 1.2rem;
+      margin: 20px auto;
+      line-height: 1.6;
+    }
+
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 30px;
+      font-size: 1rem;
+    }
+
+    .signature {
+      text-align: center;
+    }
+
+    .signature-line {
+      margin-top: 10px;
+      border-top: 2px solid #2c3e50;
+      width: 200px;
+      margin: 0 auto;
+    }
+
+    .download-btn {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #3498db;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .download-btn:hover {
+      background-color: #2980b9;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="certificate-container" id="certificate">
+    <div class="header">Certificate of Internship</div>
+    <div class="subheader">This is to certify that</div>
+    <div class="recipient">[Recipient's Name]</div>
+    <div class="content">
+      has successfully completed an internship with <strong>[Company Name]</strong> from <strong>[Start Date]</strong> to
+      <strong>[End Date]</strong>. <br><br>
+      Their contributions and learning were exceptional, demonstrating professional growth and skills.
+    </div>
+    <div class="footer">
+      <div class="signature">
+        <div class="signature-line"></div>
+        <span>[Supervisor's Name]</span>
+        <br> Supervisor
+      </div>
+      <div class="signature">
+        <div class="signature-line"></div>
+        <span>[Manager's Name]</span>
+        <br> Manager
+      </div>
+    </div>
+  </div>
+  <button class="download-btn" onclick="downloadCertificate()">Download Certificate</button>
+
+  <script>
+    function downloadCertificate() {
+      const certificate = document.getElementById('certificate');
+      html2canvas(certificate).then(canvas => {
+        const link = document.createElement('a');
+        link.download = 'Certificate.png';
+        link.href = canvas.toDataURL('image/png');
+        link.click();
+      });
+    }
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas"></script>
+</body>
+
+</html>

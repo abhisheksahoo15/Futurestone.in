@@ -1,0 +1,75 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Careers - AnalyticsPro</title>
+  <link rel="stylesheet" href="static/css/carrear.css">
+  <script src="static/js/carrear.js" defer></script>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">AnalyticsPro</div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="careers.html" class="active">Careers</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Join Our Team</h1>
+      <p>Shape the future of analytics with us. Explore opportunities to innovate and grow.</p>
+    </div>
+  </section>
+
+  <section class="open-positions">
+    <h2>Current Openings</h2>
+    <div class="positions-container">
+      <div class="position-card">
+        <h3>Data Scientist</h3>
+        <p>Analyze complex datasets and develop cutting-edge machine learning models.</p>
+        <button class="apply-btn">Apply Now</button>
+      </div>
+      <div class="position-card">
+        <h3>Business Analyst</h3>
+        <p>Bridge the gap between data and decision-making to drive business success.</p>
+        <button class="apply-btn">Apply Now</button>
+      </div>
+      <div class="position-card">
+        <h3>Frontend Developer</h3>
+        <p>Create intuitive and responsive user interfaces for our analytics platform.</p>
+        <button class="apply-btn">Apply Now</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="life-at-analyticspro">
+    <h2>Life at AnalyticsPro</h2>
+    <p>At AnalyticsPro, we foster a culture of innovation, collaboration, and continuous learning. From hackathons to wellness programs, we ensure you thrive both professionally and personally.</p>
+    <div class="gallery">
+      <img src="team1.jpg" alt="Team collaboration">
+      <img src="event1.jpg" alt="Hackathon event">
+      <img src="office1.jpg" alt="Office environment">
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 AnalyticsPro. All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.apply-btn').forEach(button => {
+      button.addEventListener('click', () => {
+        alert('Thank you for your interest! Please send your resume to careers@analyticspro.com.');
+      });
+    });
+  </script>
+</body>
+</html>

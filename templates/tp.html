@@ -1,0 +1,243 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    
+    <script>// Dark Mode Toggle
+        function toggleDarkMode() {
+            document.body.classList.toggle("dark-mode");
+        }
+        
+        // Simulated Real-time Data Updates
+        function updateStats() {
+            document.getElementById("usersCount").innerText = Math.floor(Math.random() * 5000) + " Users";
+            document.getElementById("sessionsCount").innerText = Math.floor(Math.random() * 1000) + " Active";
+            document.getElementById("conversionRate").innerText = (Math.random() * 10 + 5).toFixed(2) + "%";
+        }
+        
+        // Update stats every 3 seconds
+        setInterval(updateStats, 3000);
+        updateStats();
+        
+        // Traffic Chart
+        const ctx = document.getElementById('trafficChart').getContext('2d');
+        const trafficChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                datasets: [{
+                    label: 'Website Traffic',
+                    data: [1200, 1900, 3000, 2500, 3200, 4000],
+                    borderColor: '#ff4500',
+                    backgroundColor: 'rgba(255, 69, 0, 0.2)',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+        
+        // Simulated Real-time Chart Updates
+        function updateChart() {
+            let newData = Math.floor(Math.random() * 5000);
+            if (trafficChart.data.datasets[0].data.length > 10) {
+                trafficChart.data.datasets[0].data.shift();
+            }
+            trafficChart.data.datasets[0].data.push(newData);
+            trafficChart.update();
+        }
+        
+        // Update chart every 5 seconds
+        setInterval(updateChart, 5000);
+        </script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+
+
+    <style>
+
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #f4f4f4;
+            color: #333;
+            transition: background 0.3s, color 0.3s;
+        }
+        
+        /* Navbar */
+        header {
+            background: white;
+            position: sticky;
+            top: 0;
+            width: 100%;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            padding: 10px 20px;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #ff4500;
+        }
+        
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            font-weight: bold;
+            color: #333;
+        }
+        
+        .dark-mode-toggle {
+            background: #333;
+            color: white;
+            padding: 8px 12px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        
+        /* Dashboard */
+        .dashboard {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .cards {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 200px;
+            transition: transform 0.3s;
+        }
+        
+        .card:hover {
+            transform: scale(1.05);
+        }
+        
+        /* Charts */
+        .charts {
+            margin-top: 40px;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Dark Mode */
+        .dark-mode {
+            background: #333;
+            color: white;
+        }
+        
+        .dark-mode .card {
+            background: #444;
+            color: white;
+        }
+        
+        .dark-mode .charts {
+            background: #444;
+        }
+        
+        .dark-mode-toggle {
+            background: #ff4500;
+            color: white;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .cards {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+        
+
+        </style>
+
+</head>
+ 
+
+<body>
+
+  <header>
+    <nav class="navbar">
+      <div class="logo">AnalyticsPro Dashboard</div>
+      <ul class="nav-links">
+        <li><a href="#">Overview</a></li>
+        <li><a href="#">Reports</a></li>
+        <li><a href="#">Settings</a></li>
+      </ul>
+      <button class="dark-mode-toggle" onclick="toggleDarkMode()">🌙</button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="dashboard">
+      <h1>Live Analytics</h1>
+      <div class="cards">
+        <div class="card">
+          <h3>Total Users</h3>
+          <p id="usersCount">Loading...</p>
+        </div>
+        <div class="card">
+          <h3>Active Sessions</h3>
+          <p id="sessionsCount">Loading...</p>
+        </div>
+        <div class="card">
+          <h3>Conversion Rate</h3>
+          <p id="conversionRate">Loading...</p>
+        </div>
+      </div>
+
+      <div class="charts">
+        <canvas id="trafficChart"></canvas>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 AnalyticsPro. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

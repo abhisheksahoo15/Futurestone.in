@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pricing | AnalyticsPro</title>
+  <link rel="stylesheet" href="static/css/pricing.css">
+  <script src="static/js/pricing.js" defer></script>
+</head>
+
+<body>
+
+  <header>
+    <nav class="navbar">
+      <div class="logo">AnalyticsPro</div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="pricing.html" class="active">Pricing</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="pricing">
+      <h1>Flexible Pricing Plans</h1>
+      <p>Choose the perfect plan that meets your business needs</p>
+
+      <!-- Pricing Plan Toggle -->
+      <div class="toggle-container">
+        <span class="label">Monthly</span>
+        <label class="switch">
+          <input type="checkbox" id="togglePlan">
+          <span class="slider"></span>
+        </label>
+        <span class="label">Yearly <small>(Save 20%)</small></span>
+      </div>
+
+      <!-- Pricing Cards -->
+      <div class="pricing-cards">
+        <div class="card">
+          <h3>Starter</h3>
+          <div class="price monthly">$19<span>/mo</span></div>
+          <div class="price yearly">$152<span>/yr</span></div>
+          <ul>
+            <li><i class="icon">📊</i> Basic Analytics</li>
+            <li><i class="icon">📧</i> Email Support</li>
+            <li><i class="icon">📈</i> 10 Reports</li>
+          </ul>
+          <button>Get Started</button>
+        </div>
+
+        <div class="card popular">
+          <h3>Business</h3>
+          <div class="price monthly">$49<span>/mo</span></div>
+          <div class="price yearly">$392<span>/yr</span></div>
+          <ul>
+            <li><i class="icon">🔍</i> Advanced Analytics</li>
+            <li><i class="icon">📞</i> Priority Support</li>
+            <li><i class="icon">📈</i> Unlimited Reports</li>
+          </ul>
+          <button>Get Started</button>
+        </div>
+
+        <div class="card">
+          <h3>Enterprise</h3>
+          <div class="price monthly">$99<span>/mo</span></div>
+          <div class="price yearly">$792<span>/yr</span></div>
+          <ul>
+            <li><i class="icon">🤖</i> AI-driven Insights</li>
+            <li><i class="icon">🕒</i> 24/7 Support</li>
+            <li><i class="icon">📊</i> Custom Reports</li>
+          </ul>
+          <button>Get Started</button>
+        </div>
+      </div>
+
+      <!-- Cost Calculator -->
+      <div class="calculator">
+        <h2>Estimate Your Cost</h2>
+        <label>Number of users:</label>
+        <input type="range" min="1" max="100" value="10" id="userRange">
+        <p>Estimated Cost: <span id="cost">$190</span></p>
+      </div>
+
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 AnalyticsPro. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
