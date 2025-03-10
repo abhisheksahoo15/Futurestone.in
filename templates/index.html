@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AnalyticsPro</title>
-    <link rel="stylesheet" href="static/css/index.css">
-    <script src="static/js/index.js" defer></script>
+    <link rel="stylesheet" href="/static/css/index.css">
+    <script src="/static/js/index.js" defer></script>
 </head>
  
 
@@ -15,12 +15,14 @@
     <nav class="navbar">
       <div class="logo">StatsWave Analytics </div>
       <ul class="nav-links">
-        <li><button onclick="window.location.href='/resume-builder/'">Home</a></li>
-        <li><a href="#">Career</a></li>
-        <li><a href="#">Case Studies</a></li>
-        <li><a href="#">Certificate</a></li>
-        <li><button onclick="window.location.href='/pricing/'">Pricing</a></li>
-        <li><button onclick="window.location.href='/dashboard/'">Dashboard</a></li>
+        <li><a href="/">Home</a></li>
+        <li><a href="/carrear/">Career</a></li>
+        <li><a href="/case-study/">Case-Study</a></li>
+        <li><a href="/dashboard/">Dashboard</a></li>
+        <li><a href="/Pricing/">Pricing</a></li>
+        <li><a href="/contact_us/">Contact Us</a></li>
+
+
       </ul>
       <div class="burger">
         <span></span>
@@ -45,11 +47,13 @@
     <h2>Our Services</h2>
     <div class="service-cards">
       <div class="card">
-        <h3>Data Mining</h3>
+        <h3>Sentiment Analytics</h3>
+        {% comment %} <img src="/static/images/sentiment.jpg" alt="Sentiment Analytics" /> {% endcomment %}
         <p>Extract meaningful patterns and insights from complex datasets.</p>
       </div>
       <div class="card">
         <h3>Business Intelligence</h3>
+        {% comment %} <img src="/static/images/sentiment.jpg" alt="Sentiment Analytics" /> {% endcomment %}
         <p>Make smarter decisions with cutting-edge BI solutions.</p>
       </div>
       <div class="card">

@@ -72,6 +72,35 @@ async def home(request: Request):
     except Exception as e:
         logger.error(f"Error loading home page: {e}")
         raise HTTPException(status_code=500, detail="Internal Server Error")
+    
+
+
+
+# carrear app
+@app.get("/case-study/")
+async def home(request: Request):
+    """ Serve the Landing Page """
+    try:
+        return templates.TemplateResponse("case-study.html", {"request": request, "title": "FastAPI Web Page"})
+    except Exception as e:
+        logger.error(f"Error loading home page: {e}")
+        raise HTTPException(status_code=500, detail="Internal Server Error")
+    
+
+
+
+
+# carrear app
+@app.get("/contact_us/")
+async def home(request: Request):
+    """ Serve the Landing Page """
+    try:
+        return templates.TemplateResponse("contact_us.html", {"request": request, "title": "FastAPI Web Page"})
+    except Exception as e:
+        logger.error(f"Error loading home page: {e}")
+        raise HTTPException(status_code=500, detail="Internal Server Error")
+    
+
 # ---------------------- JOB FINDING FEATURE ----------------------
 
 
