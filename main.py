@@ -43,7 +43,7 @@ async def carrear(request: Request):
 
 @app.get("/case-study/")
 async def case_study(request: Request):
-    return templates.TemplateResponse("case-study.html", {"request": request})
+    return templates.TemplateResponse("/case-study/case1.html", {"request": request})
 
 @app.get("/contact_us/")
 async def contact_us(request: Request):
