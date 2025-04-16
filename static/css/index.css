@@ -31,7 +31,7 @@ header {
 .logo {
   font-size: 1.8rem;
   font-weight: bold;
-  color: #ff4500;
+  color: #000000;
 }
 
 .nav-links {
@@ -139,6 +139,14 @@ header {
   transition: transform 0.3s ease;
 }
 
+.card:hover{
+  background: #ff4500;
+  color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
 .card h3 {
   font-size: 1.5rem;
   margin-bottom: 10px;
@@ -148,6 +156,10 @@ header {
   transform: translateY(-5px);
 }
 
+.showcase-card:hover{
+  background: #ff4500;
+  color: #ffffff;
+}
 /* About Section */
 #about {
   padding: 60px 20px;

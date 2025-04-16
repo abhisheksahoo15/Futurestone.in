@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Upload and Analyze Data</title>
+    <link rel="stylesheet" href="/static/css/analytics.css">
+</head>
+<body>
+    <div class="container">
+        <h1>📊 Upload Your CSV or Excel File</h1>
+        <form id="uploadForm" enctype="multipart/form-data" method="post">
+            <div class="drop-area" id="dropArea">
+                <p>Drag & Drop your file here or click to upload</p>
+                <input type="file" name="file" id="fileInput" accept=".csv, .xlsx, .xls" required>
+            </div>
+            <button type="submit">Upload & Analyze</button>
+        </form>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        const dropArea = document.getElementById("dropArea");
+        const fileInput = document.getElementById("fileInput");
+
+        dropArea.addEventListener("dragover", (e) => {
+            e.preventDefault();
+            dropArea.classList.add("highlight");
+        });
+
+        dropArea.addEventListener("dragleave", () => {
+            dropArea.classList.remove("highlight");
+        });
+
+        dropArea.addEventListener("click", () => {
+            fileInput.click();
+        });
+
+        fileInput.addEventListener("change", () => {
+            dropArea.classList.add("selected");
+        });
+
+        document.getElementById("uploadForm").addEventListener("submit", async (e) => {
+            e.preventDefault();
+            const formData = new FormData();
+            const file = fileInput.files[0];
+            formData.append("file", file);
+
+            const response = await fetch("/upload-data/", {
+                method: "POST",
+                body: formData
+            });
+
+            const result = await response.json();
+            document.getElementById("result").innerText = JSON.stringify(result, null, 2);
+        });
+    </script>
+</body>
+</html>

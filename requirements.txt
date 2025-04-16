@@ -5,6 +5,7 @@ requests
 beautifulsoup4
 pandas
 scikit-learn
-
+openpyxl
+xlrd
 python-multipart
 numpy 
