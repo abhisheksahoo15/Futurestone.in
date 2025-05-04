@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Become a Worker - Hire10</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#ff4500',
+                        secondary: '#1a202c',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        :root {
+            --foreground-rgb: 0, 0, 0;
+            --background-start-rgb: 214, 219, 220;
+            --background-end-rgb: 255, 255, 255;
+        }
+
+        body {
+            color: rgb(var(--foreground-rgb));
+            background: linear-gradient(
+                to bottom,
+                transparent,
+                rgb(var(--background-end-rgb))
+            )
+            rgb(var(--background-start-rgb));
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="bg-white shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex">
+                    <div class="flex-shrink-0 flex items-center">
+                        <a href="index.html" class="text-2xl font-bold text-primary">
+                            Hire10
+                        </a>
+                    </div>
+                    <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
+                        <a href="hire.html" class="border-transparent text-gray-500 hover:border-primary hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            Find Workers
+                        </a>
+                        <a href="register-worker.html" class="border-primary text-primary hover:border-primary hover:text-primary inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            Become a Worker
+                        </a>
+                        <a href="#" class="border-transparent text-gray-500 hover:border-primary hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            About
+                        </a>
+                        <a href="#" class="border-transparent text-gray-500 hover:border-primary hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            Contact
+                        </a>
+                    </div>
+                </div>
+                <div class="hidden sm:ml-6 sm:flex sm:items-center sm:space-x-4">
+                    <span class="text-gray-500 px-3 py-2 rounded-md text-sm font-medium">
+                        Welcome to Hire10!
+                    </span>
+                </div>
+                <div class="-mr-2 flex items-center sm:hidden">
+                    <!-- Mobile menu button -->
+                    <button class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary">
+                        <span class="sr-only">Open main menu</span>
+                        <!-- Icon when menu is closed -->
+                        <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="bg-primary text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+            <div class="md:flex md:items-center md:justify-between">
+                <div class="md:w-1/2">
+                    <h1 class="text-3xl md:text-4xl font-bold mb-4">Join Hire10 as a Worker</h1>
+                    <p class="text-lg md:text-xl mb-6">Be your own boss, set your own schedule, and earn money doing what you do best.</p>
+                    <div class="flex flex-wrap gap-4 mb-8">
+                        <div class="flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span>Flexible hours</span>
+                        </div>
+                        <div class="flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span>Set your own rates</span>
+                        </div>
+                        <div class="flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                            </svg>
+                            <span>Safe and secure</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-1/2 mt-8 md:mt-0">
+                    <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Worker using laptop" class="rounded-lg shadow-xl">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="lg:flex lg:gap-12">
+            <div class="lg:w-2/3">
+                <h2 class="text-2xl font-bold mb-6">Register as a Worker</h2>
+                <form id="workerRegistrationForm" class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="full-name" class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+                            <input type="text" id="full-name" name="full-name" class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary" required>
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+                            <input type="email" id="email" name="email" class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary" required>
+                        </div>
+                        <div>
+                            <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary" required>
+                        </div>
+                        <div>
+                            <label for="location" class="block text-sm font-medium text-gray-700 mb-1">Your Location</label>
+                            <input type="text" id="location" name="location" class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary" required>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="service-type" class="block text-sm font-medium text-gray-700 mb-1">Service Type</label>
+                        <select id="service-type" name="service-type" class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary" required>
+                            <option value="">Select a service</option>
+                            <option value="transportation">Transportation</option>
+                            <option value="delivery">Delivery</option>
+                            <option value="home-services">Home Services</option>
+                            <option value="cleaning">Cleaning</option>
+                            <option value="handyman">Handyman</option>
+                            <option value="moving">Moving Help</option>
+                            <option value="professional">Professional Tasks</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="hourly-rate" class="block text-sm font-medium text-gray-700 mb-1">Hourly Rate (₹)</label>
+                        <input type="number" id="hourly-rate" name="hourly-rate" min="100" class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary" required>
+                    </div>
+
+                    <div>
+                        <label for="experience" class="block text-sm font-medium text-gray-700 mb-1">Work Experience</label>
+                        <textarea id="experience" name="experience" rows="3" class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary" required></textarea>
+                    </div>
+
+                    <div>
+                        <label for="photo" class="block text-sm font-medium text-gray-700 mb-1">Profile Photo</label>
+                        <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
+                            <div class="space-y-1 text-center">
+                                <svg class="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48" aria-hidden="true">
+                                    <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                                <div class="flex text-sm text-gray-600">
+                                    <label for="file-upload" class="relative cursor-pointer bg-white rounded-md font-medium text-primary hover:text-blue-500 focus-within:outline-none">
+                                        <span>Upload a file</span>
+                                        <input id="file-upload" name="file-upload" type="file" class="sr-only">
+                                    </label>
+                                    <p class="pl-1">or drag and drop</p>
+                                </div>
+                                <p class="text-xs text-gray-500">PNG, JPG, GIF up to 10MB</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center">
+                        <input id="terms" name="terms" type="checkbox" class="h-4 w-4 text-primary focus:ring-primary border-gray-300 rounded" required>
+                        <label for="terms" class="ml-2 block text-sm text-gray-900">
+                            I agree to the 
+                            <a href="#" class="text-primary hover:text-blue-500">Terms of Service</a>
+                            and
+                            <a href="#" class="text-primary hover:text-blue-500">Privacy Policy</a>
+                        </label>
+                    </div>
+
+                    <div>
+                        <button type="submit" class="w-full py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-primary hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary">
+                            Register as a Worker
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <div class="lg:w-1/3 mt-12 lg:mt-0">
+                <div class="bg-gray-50 p-6 rounded-lg border border-gray-200">
+                    <h3 class="text-lg font-semibold mb-4">Why Join Hire10?</h3>
+                    <ul class="space-y-4">
+                        <li class="flex">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span>Flexible working hours - work when you want</span>
+                        </li>
+                        <li class="flex">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span>Set your own rates and keep more of what you earn</span>
+                        </li>
+                        <li class="flex">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span>Build your client base and reputation</span>
+                        </li>
+                        <li class="flex">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span>Secure payment processing</span>
+                        </li>
+                        <li class="flex">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span>24/7 support when you need it</span>
+                        </li>
+                    </ul>
+
+                    <div class="mt-6 p-4 bg-blue-50 rounded-lg border border-blue-100">
+                        <p class="text-sm text-blue-800">
+                            <strong>Top workers on Hire10 earn ₹40,000+ per month.</strong> Join today and start earning!
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-50 border-t border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h4 class="font-bold text-lg mb-4">Hire10</h4>
+                    <p class="text-gray-600">The easiest way to find and hire skilled workers for any job.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-lg mb-4">Services</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-600 hover:text-primary">Transportation</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-primary">Delivery</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-primary">Home Services</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-lg mb-4">Company</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-600 hover:text-primary">About Us</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-primary">Careers</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-primary">Blog</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-lg mb-4">Legal</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-600 hover:text-primary">Terms of Service</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-primary">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="text-center mt-8 pt-8 border-t border-gray-200 text-gray-500">
+                &copy; <script>document.write(new Date().getFullYear())</script> Hire10. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuButton = document.querySelector('button');
+            mobileMenuButton.addEventListener('click', function() {
+                alert('Mobile menu would open here in the full application.');
+            });
+
+            // Handle worker registration form submission
+            const workerRegistrationForm = document.getElementById('workerRegistrationForm');
+            workerRegistrationForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const fullName = document.getElementById('full-name').value;
+                const email = document.getElementById('email').value;
+                const phone = document.getElementById('phone').value;
+                const location = document.getElementById('location').value;
+                const serviceType = document.getElementById('service-type').value;
+                const hourlyRate = document.getElementById('hourly-rate').value;
+                const experience = document.getElementById('experience').value;
+                const termsAccepted = document.getElementById('terms').checked;
+                
+                // Simple validation
+                if (!fullName || !email || !phone || !location || !serviceType || !hourlyRate || !experience) {
+                    alert('Please fill in all required fields.');
+                    return;
+                }
+                
+                if (!termsAccepted) {
+                    alert('You must accept the Terms of Service and Privacy Policy.');
+                    return;
+                }
+                
+                // In a real application, this would make an API call to register the worker
+                // For demo purposes, we'll simulate a successful registration
+                try {
+                    // Store in localStorage to simulate account creation
+                    localStorage.setItem('hire10_worker', JSON.stringify({
+                        name: fullName,
+                        email: email,
+                        phone: phone,
+                        location: location,
+                        serviceType: serviceType,
+                        hourlyRate: hourlyRate,
+                        experience: experience,
+                        isWorker: true,
+                        isLoggedIn: true
+                    }));
+                    
+                    alert('Your worker profile has been created successfully! Redirecting to dashboard.');
+                    window.location.href = 'index.html';
+                } catch (error) {
+                    alert('There was an issue creating your worker profile. Please try again.');
+                }
+            });
+        });
+    </script>
+</body>
+</html> 

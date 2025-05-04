@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book a Worker - Hire10</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#ff4500',
+                        secondary: '#1a202c',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        :root {
+            --foreground-rgb: 0, 0, 0;
+            --background-start-rgb: 214, 219, 220;
+            --background-end-rgb: 255, 255, 255;
+        }
+
+        body {
+            color: rgb(var(--foreground-rgb));
+            background: linear-gradient(
+                to bottom,
+                transparent,
+                rgb(var(--background-end-rgb))
+            )
+            rgb(var(--background-start-rgb));
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="bg-white shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex">
+                    <div class="flex-shrink-0 flex items-center">
+                        <a href="index.html" class="text-2xl font-bold text-primary">
+                            Hire10
+                        </a>
+                    </div>
+                    <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
+                        <a href="hire.html" class="border-transparent text-gray-500 hover:border-primary hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            Find Workers
+                        </a>
+                        <a href="register-worker.html" class="border-transparent text-gray-500 hover:border-primary hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            Become a Worker
+                        </a>
+                        <a href="#" class="border-transparent text-gray-500 hover:border-primary hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            About
+                        </a>
+                        <a href="#" class="border-transparent text-gray-500 hover:border-primary hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            Contact
+                        </a>
+                    </div>
+                </div>
+                <div class="hidden sm:ml-6 sm:flex sm:items-center sm:space-x-4">
+                    <span class="text-gray-500 px-3 py-2 rounded-md text-sm font-medium">
+                        Welcome to Hire10!
+                    </span>
+                </div>
+                <div class="-mr-2 flex items-center sm:hidden">
+                    <!-- Mobile menu button -->
+                    <button class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary">
+                        <span class="sr-only">Open main menu</span>
+                        <!-- Icon when menu is closed -->
+                        <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="lg:flex gap-12">
+            <div class="lg:w-2/3">
+                <h1 class="text-2xl font-bold mb-6">Book a Worker</h1>
+                
+                <div id="workerInfo" class="bg-white p-6 rounded-lg shadow-md mb-8">
+                    <div class="flex items-start">
+                        <div class="w-16 h-16 bg-gray-200 rounded-full flex-shrink-0 mr-4 overflow-hidden" id="workerAvatar">
+                            <!-- Worker avatar will be dynamically inserted here -->
+                        </div>
+                        <div>
+                            <h2 class="text-xl font-semibold text-gray-900" id="workerName">Loading worker details...</h2>
+                            <p class="text-primary font-medium" id="workerJob"></p>
+                            <div class="flex items-center mt-1">
+                                <span class="text-yellow-500">★</span>
+                                <span class="ml-1 text-sm text-gray-700" id="workerRating"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <form id="bookingForm" class="bg-white p-6 rounded-lg shadow-md space-y-6">
+                    <h2 class="text-lg font-semibold mb-4">Booking Details</h2>
+                    
+                    <div>
+                        <label for="service-description" class="block text-sm font-medium text-gray-700 mb-1">
+                            What do you need help with?
+                        </label>
+                        <textarea 
+                            id="service-description" 
+                            name="service-description" 
+                            rows="3" 
+                            class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary"
+                            placeholder="Describe the task or service you need help with..."
+                            required
+                        ></textarea>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="booking-date" class="block text-sm font-medium text-gray-700 mb-1">
+                                Date
+                            </label>
+                            <input 
+                                type="date" 
+                                id="booking-date" 
+                                name="booking-date" 
+                                class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary"
+                                required
+                            >
+                        </div>
+                        <div>
+                            <label for="booking-time" class="block text-sm font-medium text-gray-700 mb-1">
+                                Time
+                            </label>
+                            <input 
+                                type="time" 
+                                id="booking-time" 
+                                name="booking-time" 
+                                class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary"
+                                required
+                            >
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="booking-hours" class="block text-sm font-medium text-gray-700 mb-1">
+                            Estimated Hours
+                        </label>
+                        <input 
+                            type="number" 
+                            id="booking-hours" 
+                            name="booking-hours" 
+                            min="1" 
+                            class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary"
+                            required
+                        >
+                    </div>
+
+                    <div>
+                        <label for="booking-location" class="block text-sm font-medium text-gray-700 mb-1">
+                            Location/Address
+                        </label>
+                        <input 
+                            type="text" 
+                            id="booking-location" 
+                            name="booking-location" 
+                            class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary"
+                            placeholder="Enter the address where the service is needed"
+                            required
+                        >
+                    </div>
+
+                    <div>
+                        <label for="booking-phone" class="block text-sm font-medium text-gray-700 mb-1">
+                            Phone Number
+                        </label>
+                        <input 
+                            type="tel" 
+                            id="booking-phone" 
+                            name="booking-phone" 
+                            class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary"
+                            required
+                        >
+                    </div>
+
+                    <div>
+                        <label for="booking-notes" class="block text-sm font-medium text-gray-700 mb-1">
+                            Additional Notes (Optional)
+                        </label>
+                        <textarea 
+                            id="booking-notes" 
+                            name="booking-notes" 
+                            rows="2" 
+                            class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary"
+                            placeholder="Any additional information the worker should know"
+                        ></textarea>
+                    </div>
+
+                    <div>
+                        <button 
+                            type="submit" 
+                            class="w-full py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-primary hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
+                        >
+                            Confirm Booking
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="lg:w-1/3 mt-12 lg:mt-0">
+                <div class="bg-white p-6 rounded-lg shadow-md mb-6">
+                    <h2 class="text-lg font-semibold mb-4">Booking Summary</h2>
+                    
+                    <div class="space-y-4">
+                        <div>
+                            <p class="text-sm text-gray-500">Worker</p>
+                            <p class="font-medium" id="summaryWorkerName">-</p>
+                        </div>
+                        <div>
+                            <p class="text-sm text-gray-500">Service</p>
+                            <p class="font-medium" id="summaryService">-</p>
+                        </div>
+                        <div>
+                            <p class="text-sm text-gray-500">Date & Time</p>
+                            <p class="font-medium" id="summaryDateTime">-</p>
+                        </div>
+                        <div>
+                            <p class="text-sm text-gray-500">Estimated Duration</p>
+                            <p class="font-medium" id="summaryDuration">-</p>
+                        </div>
+                        <div class="pt-4 border-t border-gray-200">
+                            <div class="flex justify-between">
+                                <p class="font-medium">Hourly Rate</p>
+                                <p class="font-medium" id="summaryRate">₹0/hr</p>
+                            </div>
+                            <div class="flex justify-between mt-2">
+                                <p class="font-medium">Estimated Total</p>
+                                <p class="font-bold text-primary" id="summaryTotal">₹0</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h2 class="text-lg font-semibold mb-4">Payment Options</h2>
+                    <div class="space-y-3">
+                        <div class="flex items-center">
+                            <input type="radio" id="payment-cash" name="payment-method" value="cash" class="h-4 w-4 text-primary focus:ring-primary border-gray-300" checked>
+                            <label for="payment-cash" class="ml-2 block text-sm text-gray-900">Pay with Cash</label>
+                        </div>
+                        <div class="flex items-center">
+                            <input type="radio" id="payment-upi" name="payment-method" value="upi" class="h-4 w-4 text-primary focus:ring-primary border-gray-300">
+                            <label for="payment-upi" class="ml-2 block text-sm text-gray-900">UPI</label>
+                        </div>
+                        <div class="flex items-center">
+                            <input type="radio" id="payment-card" name="payment-method" value="card" class="h-4 w-4 text-primary focus:ring-primary border-gray-300">
+                            <label for="payment-card" class="ml-2 block text-sm text-gray-900">Credit/Debit Card</label>
+                        </div>
+                    </div>
+
+                    <div class="mt-4 p-4 bg-blue-50 rounded-lg border border-blue-100">
+                        <p class="text-sm text-blue-800">
+                            <strong>Note:</strong> Payment will be collected after the service is completed.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-50 border-t border-gray-200 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h4 class="font-bold text-lg mb-4">Hire10</h4>
+                    <p class="text-gray-600">The easiest way to find and hire skilled workers for any job.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-lg mb-4">Services</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-600 hover:text-primary">Transportation</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-primary">Delivery</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-primary">Home Services</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-lg mb-4">Company</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-600 hover:text-primary">About Us</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-primary">Careers</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-primary">Blog</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-lg mb-4">Legal</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-600 hover:text-primary">Terms of Service</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-primary">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="text-center mt-8 pt-8 border-t border-gray-200 text-gray-500">
+                &copy; <script>document.write(new Date().getFullYear())</script> Hire10. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuButton = document.querySelector('button');
+            mobileMenuButton.addEventListener('click', function() {
+                alert('Mobile menu would open here in the full application.');
+            });
+
+            // Get worker info from URL or localStorage
+            const urlParams = new URLSearchParams(window.location.search);
+            let workerName = urlParams.get('worker');
+            let workerJob = urlParams.get('job');
+            
+            // If not in URL, try to get from localStorage
+            if (!workerName || !workerJob) {
+                const lastBooking = localStorage.getItem('lastBookingAttempt');
+                if (lastBooking) {
+                    const bookingData = JSON.parse(lastBooking);
+                    workerName = bookingData.worker;
+                    workerJob = bookingData.job;
+                } else {
+                    // Default values if nothing is found
+                    workerName = "Rajesh Kumar";
+                    workerJob = "Driver";
+                }
+            }
+            
+            // Set worker information
+            document.getElementById('workerName').textContent = workerName;
+            document.getElementById('workerJob').textContent = workerJob;
+            document.getElementById('workerRating').textContent = '4.8 (124 reviews)';
+            document.getElementById('summaryWorkerName').textContent = workerName;
+            document.getElementById('summaryService').textContent = workerJob;
+            
+            // Load random avatar
+            let avatarId;
+            // Determine gender for avatar based on common Indian names (simplified approach)
+            const femaleNames = ['Priya', 'Anjali', 'Meera', 'Kavita', 'Sunita', 'Neha'];
+            const firstNamePart = workerName.split(' ')[0];
+            
+            if (femaleNames.some(name => firstNamePart.includes(name))) {
+                avatarId = Math.floor(Math.random() * 70) + 1; // Random number for women avatar
+                document.getElementById('workerAvatar').innerHTML = `<img src="https://randomuser.me/api/portraits/women/${avatarId}.jpg" alt="Worker avatar" class="w-full h-full object-cover">`;
+            } else {
+                avatarId = Math.floor(Math.random() * 70) + 1; // Random number for men avatar
+                document.getElementById('workerAvatar').innerHTML = `<img src="https://randomuser.me/api/portraits/men/${avatarId}.jpg" alt="Worker avatar" class="w-full h-full object-cover">`;
+            }
+            
+            // Set hourly rate based on job
+            let hourlyRate;
+            switch(workerJob) {
+                case 'Driver':
+                    hourlyRate = 250;
+                    break;
+                case 'Cleaner':
+                    hourlyRate = 220;
+                    break;
+                case 'Handyman':
+                    hourlyRate = 350;
+                    break;
+                case 'Delivery Person':
+                    hourlyRate = 200;
+                    break;
+                case 'Electrician':
+                    hourlyRate = 450;
+                    break;
+                case 'Plumber':
+                    hourlyRate = 400;
+                    break;
+                default:
+                    hourlyRate = 300;
+            }
+            
+            document.getElementById('summaryRate').textContent = `₹${hourlyRate}/hr`;
+            
+            // Set minimum date to today
+            const today = new Date();
+            const yyyy = today.getFullYear();
+            const mm = String(today.getMonth() + 1).padStart(2, '0');
+            const dd = String(today.getDate()).padStart(2, '0');
+            const formattedDate = `${yyyy}-${mm}-${dd}`;
+            document.getElementById('booking-date').min = formattedDate;
+            
+            // Update booking summary as user fills out form
+            const bookingForm = document.getElementById('bookingForm');
+            const bookingHours = document.getElementById('booking-hours');
+            const bookingDate = document.getElementById('booking-date');
+            const bookingTime = document.getElementById('booking-time');
+            
+            function updateSummary() {
+                const hours = bookingHours.value || 0;
+                const date = bookingDate.value;
+                const time = bookingTime.value;
+                
+                // Update summary values
+                if (hours > 0) {
+                    document.getElementById('summaryDuration').textContent = `${hours} hour${hours > 1 ? 's' : ''}`;
+                    document.getElementById('summaryTotal').textContent = `₹${hourlyRate * hours}`;
+                }
+                
+                if (date && time) {
+                    const formattedDate = new Date(`${date}T${time}`);
+                    const options = { 
+                        weekday: 'long', 
+                        year: 'numeric', 
+                        month: 'long', 
+                        day: 'numeric',
+                        hour: '2-digit',
+                        minute: '2-digit'
+                    };
+                    document.getElementById('summaryDateTime').textContent = formattedDate.toLocaleDateString('en-IN', options);
+                }
+            }
+            
+            // Add event listeners to update summary
+            bookingHours.addEventListener('input', updateSummary);
+            bookingDate.addEventListener('change', updateSummary);
+            bookingTime.addEventListener('change', updateSummary);
+            
+            // Handle form submission
+            bookingForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const serviceDescription = document.getElementById('service-description').value;
+                const bookingDate = document.getElementById('booking-date').value;
+                const bookingTime = document.getElementById('booking-time').value;
+                const bookingHours = document.getElementById('booking-hours').value;
+                const bookingLocation = document.getElementById('booking-location').value;
+                const bookingPhone = document.getElementById('booking-phone').value;
+                const bookingNotes = document.getElementById('booking-notes').value;
+                const paymentMethod = document.querySelector('input[name="payment-method"]:checked').value;
+                
+                // Simple validation
+                if (!serviceDescription || !bookingDate || !bookingTime || !bookingHours || !bookingLocation || !bookingPhone) {
+                    alert('Please fill in all required fields.');
+                    return;
+                }
+                
+                // Store booking in localStorage for demo purposes
+                try {
+                    const bookings = JSON.parse(localStorage.getItem('bookings') || '[]');
+                    
+                    const newBooking = {
+                        worker: workerName,
+                        service: workerJob,
+                        description: serviceDescription,
+                        date: bookingDate,
+                        time: bookingTime,
+                        hours: bookingHours,
+                        location: bookingLocation,
+                        phone: bookingPhone,
+                        notes: bookingNotes,
+                        paymentMethod: paymentMethod,
+                        rate: hourlyRate,
+                        total: hourlyRate * bookingHours,
+                        status: 'Confirmed',
+                        bookingDate: new Date().toISOString()
+                    };
+                    
+                    bookings.push(newBooking);
+                    localStorage.setItem('bookings', JSON.stringify(bookings));
+                    
+                    alert('Booking confirmed! The worker has been notified and will contact you shortly.');
+                    window.location.href = 'index.html'; // Redirect to home page
+                } catch (error) {
+                    alert('There was an issue processing your booking. Please try again.');
+                }
+            });
+        });
+    </script>
+</body>
+</html> 
