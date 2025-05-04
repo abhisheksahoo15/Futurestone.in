@@ -53,6 +53,10 @@ async def contact_us(request: Request):
 async def analytics_upload_page(request: Request):
     return templates.TemplateResponse("analytics.html", {"request": request})
 
+@app.get("/employee/")
+async def analytics_upload_page(request: Request):
+    return templates.TemplateResponse("register-worker.html", {"request": request})
+
 # ---------------------- Job Fetching Feature ----------------------
 
 @app.post("/fetch-jobs/")

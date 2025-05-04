@@ -33,6 +33,17 @@
     </nav>
   </header>
 
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const burger = document.querySelector('.burger');
+        const navLinks = document.querySelector('.nav-links');
+
+        burger.addEventListener('click', () => {
+            navLinks.classList.toggle('nav-active');
+        });
+    });
+  </script>
+
   <section class="hero fade-in">
     <div class="hero-content">
       <h1>Data Speaks. We Make It Heard.</h1>

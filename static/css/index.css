@@ -35,8 +35,8 @@ header {
 }
 
 .nav-links {
-  list-style: none;
   display: flex;
+  list-style: none;
   gap: 20px;
 }
 
@@ -50,32 +50,48 @@ header {
   color: #ff4500;
 }
 
-
-/* Responsive Design */
-@media screen and (max-width: 768px) {
-.nav-links {
+.burger {
   display: none;
   flex-direction: column;
-  position: absolute;
-  top: 60px;
-  right: 0;
-  background: #182848;
-  width: 200px;
-  border-radius: 10px;
-  text-align: center;
+  gap: 5px;
+  cursor: pointer;
 }
 
-.nav-links li {
-  margin: 10px 0;
+.burger span {
+  width: 25px;
+  height: 3px;
+  background-color: #333;
+  margin: 4px 0;
 }
 
-.burger {
-  display: flex;
-}
+/* Responsive Navbar */
+@media screen and (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background: #f6f6f7;
+    color: #e03e00;
+    width: 200px;
+    border-radius: 10px;
+    text-align: center;
+    padding: 10px 0;
+    z-index: 999;
+  }
 
-.nav-active {
-  display: flex;
-}
+  .nav-links li {
+    margin: 10px 0;
+  }
+
+  .nav-links.nav-active {
+    display: flex;
+  }
+
+  .burger {
+    display: flex;
+  }
 }
 
 /* Hero Section */
@@ -110,7 +126,7 @@ header {
   background: #e03e00;
 }
 
-/* Service Section */
+/* Services Section */
 #services {
   padding: 60px 20px;
   text-align: center;
@@ -139,33 +155,22 @@ header {
   transition: transform 0.3s ease;
 }
 
-.card:hover{
+.card:hover {
   background: #ff4500;
   color: #ffffff;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
+  transform: translateY(-5px);
 }
+
 .card h3 {
   font-size: 1.5rem;
   margin-bottom: 10px;
 }
 
-.card:hover {
-  transform: translateY(-5px);
-}
-
-.showcase-card:hover{
-  background: #ff4500;
-  color: #ffffff;
-}
 /* About Section */
 #about {
   padding: 60px 20px;
   text-align: center;
-  --tw-bg-opacity: 1;
-  background-color: rgba(229, 231, 235, var(--tw-bg-opacity));
+  background-color: #e5e7eb;
 }
 
 #about h2 {
@@ -187,9 +192,7 @@ header {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   padding: 80px 20px;
-
 }
 
 .contact h2 {
@@ -258,7 +261,7 @@ footer {
   background-color: #fff;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
-  display: none; /* Hidden by default */
+  display: none;
   flex-direction: column;
   padding: 10px;
   cursor: move;
@@ -281,7 +284,6 @@ footer {
   cursor: pointer;
 }
 
-/* Chat Content */
 .chat-content {
   flex-grow: 1;
   overflow-y: auto;
@@ -335,14 +337,7 @@ button {
   cursor: pointer;
 }
 
-/* Draggable */
-.chatbot-container {
-  cursor: move;
-}
-
-
-
-/* Full-Width Showcase Section */
+/* Showcase Section */
 .showcase {
   width: 100%;
   text-align: center;
@@ -411,7 +406,7 @@ button {
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Footer Section */
+/* Extended Footer */
 .footer {
   background: #212529;
   color: white;

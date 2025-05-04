@@ -96,3 +96,7 @@ document.querySelector("#send-message").addEventListener("click", () => {
         }, 1000);
     }
 });
+
+
+
+
