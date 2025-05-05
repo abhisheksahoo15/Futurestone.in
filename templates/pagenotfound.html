@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Oops! Server Busy</title>
+  <style>
+    :root {
+      --primary: #ff4500;
+      --bg: #f3f3f3;
+      --text-dark: #1a1a1a;
+      --text-light: #666;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--bg);
+      color: var(--text-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .container {
+      max-width: 600px;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+      color: var(--primary);
+    }
+
+    p {
+      font-size: 1.1rem;
+      color: var(--text-light);
+      margin-bottom: 1.5rem;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+
+    .btn:hover {
+      background: #e03d00;
+    }
+
+    img {
+      width: 100%;
+      max-width: 300px;
+      margin-bottom: 2rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <img src="https://cdn-icons-png.flaticon.com/512/564/564445.png" alt="Server Busy Icon" />
+    <h1>Oops! Server Busy</h1>
+    <p>We're currently facing heavy traffic. Our servers are working hard to recover.</p>
+    <p>We'll be back soon. Thank you for your patience 🙏</p>
+    <a href="index.html" class="btn">Go Back to Home</a>
+  </div>
+
+</body>
+</html>

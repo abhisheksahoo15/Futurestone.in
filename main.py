@@ -61,6 +61,18 @@ async def analytics_upload_page(request: Request):
 async def analytics_upload_page(request: Request):
     return templates.TemplateResponse("founders.html", {"request": request})
 
+
+@app.get("/server/")
+async def analytics_upload_page(request: Request):
+    return templates.TemplateResponse("pagenotfound.html", {"request": request})
+
+
+@app.get("/service/")
+async def analytics_upload_page(request: Request):
+    return templates.TemplateResponse("service.html", {"request": request})
+
+
+
 # ---------------------- Job Fetching Feature ----------------------
 
 @app.post("/fetch-jobs/")
