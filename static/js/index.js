@@ -100,3 +100,15 @@ document.querySelector("#send-message").addEventListener("click", () => {
 
 
 
+  // Show popup on page load
+
+  function closePopup() {
+    document.getElementById("popupModal").style.display = "none";
+    localStorage.setItem("popupShown", "true");
+  }
+
+  window.onload = function () {
+    if (!localStorage.getItem("popupShown")) {
+      document.getElementById("popupModal").style.display = "flex";
+    }
+  };
