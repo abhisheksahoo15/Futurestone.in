@@ -149,9 +149,134 @@
         height: 100px;
       }
     }
+
+
+
+    /* --- Navbar --- */
+
+    nav {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: white; /* or whatever your nav color is */
+}
+
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+header {
+  background: #ffffff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px 20px;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #000000;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+.nav-links a:hover {
+  color: #ff4500;
+}
+
+.burger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.burger span {
+  width: 25px;
+  height: 3px;
+  background-color: #333;
+  margin: 4px 0;
+}
+
+/* Responsive Navbar */
+@media screen and (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background: #f6f6f7;
+    color: #e03e00;
+    width: 200px;
+    border-radius: 10px;
+    text-align: center;
+    padding: 10px 0;
+    z-index: 999;
+  }
+
+  .nav-links li {
+    margin: 10px 0;
+  }
+
+  .nav-links.nav-active {
+    display: flex;
+  }
+
+  .burger {
+    display: flex;
+  }
+}
+
+
+
   </style>
 </head>
 <body>
+
+  <header>
+    <nav class="navbar">
+      <div class="logo">Future<span style="color: #ff4500;">Stone</span> Analytics</div>
+
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/carrear/">Career</a></li>
+        <li><a href="/case-study/">Case-Study</a></li>
+        <li><a href="/dashboard/">Dashboard</a></li>
+        <li><a href="/server/">Pricing</a></li>
+        <li><a href="/contact_us/">Contact Us</a></li>
+
+
+      </ul>
+      <div class="burger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </nav>
+  </header>
 
 <div class="container">
   <!-- Left Big Card -->
@@ -234,5 +359,15 @@
     </div>
   </section>
 
+
+  <script>
+    const burger = document.querySelector('.burger');
+    const nav = document.querySelector('.nav-links');
+  
+    burger.addEventListener('click', () => {
+      nav.classList.toggle('nav-active');
+    });
+  </script>
+  
 </body>
 </html>
