@@ -81,19 +81,19 @@
   <section id="services" class="services fade-in">
     <h2>Our Services</h2>
     <div class="service-cards">
-      <div class="card">
+      <div class="card" onclick="showPopupSA()">
         <h3>Sentiment Analytics</h3>
         
         <p>Extract meaningful patterns and insights from complex datasets.</p>
       </div>
-      <div class="card">
+      <div class="card" onclick="showPopupBI()">
         <h3>Business Intelligence</h3>
         
         <p>Make smarter decisions with cutting-edge BI solutions.</p>
       </div>
 
 
-      <div class="card">
+      <div class="card" onclick="showPopupSF()">
         <a href="/server/" style="text-decoration: none; color: inherit;">
           <h3>Student Fusion</h3>
           <p>Check out our Hackathon and Ideathon</p>
@@ -214,6 +214,21 @@
     </div>
     <p class="footer-bottom">&copy; 2025 Futurestone Analytics. All rights reserved.</p>
   </footer>
+
+
+  <script>
+    function showPopupSA() {
+        alert("Hyeee Senti Person We Are on the way to make your life easier with our AI-driven Sentiment Analytics. Stay tuned for updates!");
+    }
+
+    function showPopupBI() {
+        alert("Hello Business Intelligence Enthusiast! We are working on advanced BI solutions to help you make smarter decisions. Stay tuned for updates!");
+    }
+
+    function showPopupSF() {
+        alert("Just a moment! We are working on Student Fusion, a platform for students to showcase their skills and projects. Stay tuned for updates!");
+    }
+</script>
   
 </body>
 </html>
