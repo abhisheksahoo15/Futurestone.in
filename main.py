@@ -75,46 +75,7 @@ async def analytics_upload_page(request: Request):
 
 # ---------------------- Job Fetching Feature ----------------------
 
-@app.post("/fetch-jobs/")
-async def fetch_jobs(role: str = Form(...), location: str = Form(...)):
-    try:
-        if not role or not location:
-            raise HTTPException(status_code=400, detail="Role and location are required")
 
-        url = f"https://www.linkedin.com/jobs/search/?keywords={role}&location={location}"
-        headers = {
-            "User-Agent": "Mozilla/5.0",
-            "Accept-Language": "en-US,en;q=0.9",
-            "Referer": "https://www.google.com/",
-        }
-
-        response = requests.get(url, headers=headers)
-        time.sleep(2)
-
-        if response.status_code != 200:
-            logger.error(f"Failed to fetch job listings: {response.status_code}")
-            raise HTTPException(status_code=500, detail="LinkedIn job search failed")
-
-        soup = BeautifulSoup(response.text, "html.parser")
-        job_cards = soup.find_all("div", class_="base-card")
-
-        jobs = []
-        for job in job_cards[:10]:
-            title = job.find("h3", class_="base-search-card__title")
-            company = job.find("h4", class_="base-search-card__subtitle")
-            link = job.find("a", class_="base-card__full-link")
-
-            jobs.append({
-                "title": title.text.strip() if title else "N/A",
-                "company": company.text.strip() if company else "N/A",
-                "link": link["href"] if link else "N/A"
-            })
-
-        return {"status": "success", "jobs": jobs}
-
-    except Exception as e:
-        logger.error(f"Job fetch error: {e}")
-        raise HTTPException(status_code=500, detail="Error while fetching jobs")
 
 # ---------------------- Upload & Analyze CSV/Excel ----------------------
 
